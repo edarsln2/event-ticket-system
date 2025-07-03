@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Npgsql" Version="9.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EventTicketSystem.Dto\EventTicketSystem.Dto.csproj" />
+    <ProjectReference Include="..\EventTicketSystem.Entity\EventTicketSystem.Entity.csproj" />
+    <ProjectReference Include="..\EventTicketSystem.Factory\EventTicketSystem.Factory.csproj" />
+  </ItemGroup>
+
+</Project>

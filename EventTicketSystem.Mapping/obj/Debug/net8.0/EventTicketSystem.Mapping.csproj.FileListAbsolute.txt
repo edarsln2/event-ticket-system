@@ -1,0 +1,17 @@
+D:\EventTicketSystem\EventTicketSystem.Mapping\bin\Debug\net8.0\EventTicketSystem.Mapping.deps.json
+D:\EventTicketSystem\EventTicketSystem.Mapping\bin\Debug\net8.0\EventTicketSystem.Mapping.dll
+D:\EventTicketSystem\EventTicketSystem.Mapping\bin\Debug\net8.0\EventTicketSystem.Mapping.pdb
+D:\EventTicketSystem\EventTicketSystem.Mapping\bin\Debug\net8.0\EventTicketSystem.Dto.dll
+D:\EventTicketSystem\EventTicketSystem.Mapping\bin\Debug\net8.0\EventTicketSystem.Entity.dll
+D:\EventTicketSystem\EventTicketSystem.Mapping\bin\Debug\net8.0\EventTicketSystem.Dto.pdb
+D:\EventTicketSystem\EventTicketSystem.Mapping\bin\Debug\net8.0\EventTicketSystem.Entity.pdb
+D:\EventTicketSystem\EventTicketSystem.Mapping\obj\Debug\net8.0\EventTicketSystem.Mapping.csproj.AssemblyReference.cache
+D:\EventTicketSystem\EventTicketSystem.Mapping\obj\Debug\net8.0\EventTicketSystem.Mapping.GeneratedMSBuildEditorConfig.editorconfig
+D:\EventTicketSystem\EventTicketSystem.Mapping\obj\Debug\net8.0\EventTicketSystem.Mapping.AssemblyInfoInputs.cache
+D:\EventTicketSystem\EventTicketSystem.Mapping\obj\Debug\net8.0\EventTicketSystem.Mapping.AssemblyInfo.cs
+D:\EventTicketSystem\EventTicketSystem.Mapping\obj\Debug\net8.0\EventTicketSystem.Mapping.csproj.CoreCompileInputs.cache
+D:\EventTicketSystem\EventTicketSystem.Mapping\obj\Debug\net8.0\EventTic.5AFBD9F4.Up2Date
+D:\EventTicketSystem\EventTicketSystem.Mapping\obj\Debug\net8.0\EventTicketSystem.Mapping.dll
+D:\EventTicketSystem\EventTicketSystem.Mapping\obj\Debug\net8.0\refint\EventTicketSystem.Mapping.dll
+D:\EventTicketSystem\EventTicketSystem.Mapping\obj\Debug\net8.0\EventTicketSystem.Mapping.pdb
+D:\EventTicketSystem\EventTicketSystem.Mapping\obj\Debug\net8.0\ref\EventTicketSystem.Mapping.dll

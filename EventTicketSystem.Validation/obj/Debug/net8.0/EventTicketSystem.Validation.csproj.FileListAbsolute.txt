@@ -1,0 +1,15 @@
+D:\EventTicketSystem\EventTicketSystem.Validation\bin\Debug\net8.0\EventTicketSystem.Validation.deps.json
+D:\EventTicketSystem\EventTicketSystem.Validation\bin\Debug\net8.0\EventTicketSystem.Validation.dll
+D:\EventTicketSystem\EventTicketSystem.Validation\bin\Debug\net8.0\EventTicketSystem.Validation.pdb
+D:\EventTicketSystem\EventTicketSystem.Validation\bin\Debug\net8.0\EventTicketSystem.Dto.dll
+D:\EventTicketSystem\EventTicketSystem.Validation\bin\Debug\net8.0\EventTicketSystem.Dto.pdb
+D:\EventTicketSystem\EventTicketSystem.Validation\obj\Debug\net8.0\EventTicketSystem.Validation.csproj.AssemblyReference.cache
+D:\EventTicketSystem\EventTicketSystem.Validation\obj\Debug\net8.0\EventTicketSystem.Validation.GeneratedMSBuildEditorConfig.editorconfig
+D:\EventTicketSystem\EventTicketSystem.Validation\obj\Debug\net8.0\EventTicketSystem.Validation.AssemblyInfoInputs.cache
+D:\EventTicketSystem\EventTicketSystem.Validation\obj\Debug\net8.0\EventTicketSystem.Validation.AssemblyInfo.cs
+D:\EventTicketSystem\EventTicketSystem.Validation\obj\Debug\net8.0\EventTicketSystem.Validation.csproj.CoreCompileInputs.cache
+D:\EventTicketSystem\EventTicketSystem.Validation\obj\Debug\net8.0\EventTic.CF46F3E0.Up2Date
+D:\EventTicketSystem\EventTicketSystem.Validation\obj\Debug\net8.0\EventTicketSystem.Validation.dll
+D:\EventTicketSystem\EventTicketSystem.Validation\obj\Debug\net8.0\refint\EventTicketSystem.Validation.dll
+D:\EventTicketSystem\EventTicketSystem.Validation\obj\Debug\net8.0\EventTicketSystem.Validation.pdb
+D:\EventTicketSystem\EventTicketSystem.Validation\obj\Debug\net8.0\ref\EventTicketSystem.Validation.dll

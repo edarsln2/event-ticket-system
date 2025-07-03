@@ -1,0 +1,12 @@
+D:\EventTicketSystem\EventTicketSystem.Dto\bin\Debug\net8.0\EventTicketSystem.Dto.deps.json
+D:\EventTicketSystem\EventTicketSystem.Dto\bin\Debug\net8.0\EventTicketSystem.Dto.dll
+D:\EventTicketSystem\EventTicketSystem.Dto\bin\Debug\net8.0\EventTicketSystem.Dto.pdb
+D:\EventTicketSystem\EventTicketSystem.Dto\obj\Debug\net8.0\EventTicketSystem.Dto.csproj.AssemblyReference.cache
+D:\EventTicketSystem\EventTicketSystem.Dto\obj\Debug\net8.0\EventTicketSystem.Dto.GeneratedMSBuildEditorConfig.editorconfig
+D:\EventTicketSystem\EventTicketSystem.Dto\obj\Debug\net8.0\EventTicketSystem.Dto.AssemblyInfoInputs.cache
+D:\EventTicketSystem\EventTicketSystem.Dto\obj\Debug\net8.0\EventTicketSystem.Dto.AssemblyInfo.cs
+D:\EventTicketSystem\EventTicketSystem.Dto\obj\Debug\net8.0\EventTicketSystem.Dto.csproj.CoreCompileInputs.cache
+D:\EventTicketSystem\EventTicketSystem.Dto\obj\Debug\net8.0\EventTicketSystem.Dto.dll
+D:\EventTicketSystem\EventTicketSystem.Dto\obj\Debug\net8.0\refint\EventTicketSystem.Dto.dll
+D:\EventTicketSystem\EventTicketSystem.Dto\obj\Debug\net8.0\EventTicketSystem.Dto.pdb
+D:\EventTicketSystem\EventTicketSystem.Dto\obj\Debug\net8.0\ref\EventTicketSystem.Dto.dll
