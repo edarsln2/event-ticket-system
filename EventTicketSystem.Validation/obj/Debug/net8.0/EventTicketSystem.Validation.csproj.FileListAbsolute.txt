@@ -8,6 +8,7 @@ D:\EventTicketSystem\EventTicketSystem.Validation\obj\Debug\net8.0\EventTicketSy
 D:\EventTicketSystem\EventTicketSystem.Validation\obj\Debug\net8.0\EventTicketSystem.Validation.AssemblyInfoInputs.cache
 D:\EventTicketSystem\EventTicketSystem.Validation\obj\Debug\net8.0\EventTicketSystem.Validation.AssemblyInfo.cs
 D:\EventTicketSystem\EventTicketSystem.Validation\obj\Debug\net8.0\EventTicketSystem.Validation.csproj.CoreCompileInputs.cache
+D:\EventTicketSystem\EventTicketSystem.Validation\obj\Debug\net8.0\EventTicketSystem.Validation.sourcelink.json
 D:\EventTicketSystem\EventTicketSystem.Validation\obj\Debug\net8.0\EventTic.CF46F3E0.Up2Date
 D:\EventTicketSystem\EventTicketSystem.Validation\obj\Debug\net8.0\EventTicketSystem.Validation.dll
 D:\EventTicketSystem\EventTicketSystem.Validation\obj\Debug\net8.0\refint\EventTicketSystem.Validation.dll

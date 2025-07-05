@@ -1,7 +1,8 @@
-﻿using EventTicketSystem.Dto.Request;
+﻿using EventTicketSystem.Service;
+using EventTicketSystem.Dto.Request;
 using EventTicketSystem.Dto.Response;
-using EventTicketSystem.Dto.Responses;
-using EventTicketSystem.Service;
+using EventTicketSystem.Application.ResponseGenerators;
+using EventTicketSystem.Entity;
 
 namespace EventTicketSystem.Application
 {
@@ -20,14 +21,10 @@ namespace EventTicketSystem.Application
 
         public InsertEventResponse InsertEvent(InsertEventRequest request)
         {
-            var insertedEvent = _eventService.InsertEvent(request);
-
-            return new InsertEventResponse
-            {
-                EventId = insertedEvent.EventId
-            };
+            var insertEvent = _eventService.InsertEvent(request.EventCategory, request.EventName, request.StartDate, request.EndDate, request.Location, request.Price,request.TotalCapacity);
+            return EventResponseGenerator.ToInsertEventResponse(insertEvent);
         }
-
+        
         public void DeleteEvent(int eventId)
         {
             _eventService.DeleteEvent(eventId);
@@ -35,103 +32,37 @@ namespace EventTicketSystem.Application
 
         public GetEventByIdResponse GetEventById(int eventId)
         {
-            var evnt = _eventService.GetEventById(eventId);
-
-            return new GetEventByIdResponse
-            {
-                EventCategory = evnt.EventCategory,
-                EventName = evnt.EventName,
-                StartDate = evnt.StartDate,
-                EndDate = evnt.EndDate,
-                Location = evnt.Location,
-                Price = evnt.Price,
-                TotalCapacity = evnt.TotalCapacity,
-                TicketSold = evnt.TicketSold,
-                AvailableTickets = evnt.TotalCapacity - evnt.TicketSold
-            };
+            var evnt = _eventService.GetEventByIdOrThrow(eventId);
+            return EventResponseGenerator.ToGetEventByIdResponse(evnt);
         }
 
         public List<GetEventListResponse> GetEventList()
         {
             var events = _eventService.GetEventList();
-
-            return events.Select(e => new GetEventListResponse
-            {
-                EventId = e.EventId,
-                EventCategory = e.EventCategory,
-                EventName = e.EventName,
-                StartDate = e.StartDate,
-                EndDate = e.EndDate,
-                Location = e.Location,
-                Price = e.Price,
-                AvailableTickets = e.TotalCapacity - e.TicketSold
-            }).ToList();
+            return events.Select(EventResponseGenerator.ToGetEventListResponse).ToList();
         }
-
         public RegisterUserResponse RegisterUser(RegisterUserRequest request)
         {
-            var insertedUser = _userService.RegisterUser(request);
-
-            return new RegisterUserResponse
-            {
-                UserId = insertedUser.UserId,
-            };
+            var registerUser = _userService.RegisterUser(request.UserName, request.Email, request.Password);
+            return UserResponseGenerator.ToRegisterUserResponse(registerUser);
         }
 
         public PurchaseTicketResponse PurchaseTicket(PurchaseTicketRequest request)
         {
             var user = _userService.GetUserById(request.UserId);
-
-            var evnt = _eventService.GetEventById(request.EventId);
-
-            if (!_eventService.IsEventActive(request.EventId))
-            {
-                throw new InvalidOperationException("Etkinlik aktif değil.");
-            }
-
-            if (_eventService.GetAvailableCapacity(request.EventId) < request.Quantity)
-            {
-                throw new InvalidOperationException("Yeterli kapasite yok.");
-            }
-
-            _eventService.SellTickets(request.EventId, request.Quantity);
-
+            var evnt = _eventService.SellTicket(request.EventId, request.Quantity);
             var purchase = _purchaseService.PurchaseTicket(user, evnt, request.Quantity);
-
-            return new PurchaseTicketResponse
-            {
-                PurchaseId = purchase.PurchaseId,
-                EventId = purchase.EventId,
-                TicketCount = purchase.Quantity,
-                TotalPrice = purchase.TotalPrice,
-                PurchaseDate = purchase.PurchaseDate
-            };
+            return PurchaseResponseGenerator.ToPurchaseTicketResponse(purchase);
         }
 
         public List<UserEventResponse> GetUserEvents(UserEventRequest request)
         {
-            var user = _userService.GetUserById(request.UserId); 
-
-            var purchases = _purchaseService.GetUserPurchases(request.UserId); 
-
-            return purchases.Select(p => new UserEventResponse
-            {
-                PurchaseId = p.PurchaseId,
-                PurchaseDate = p.PurchaseDate,
-                Quantity = p.Quantity,
-                TotalPrice = p.TotalPrice,
-                EventId = p.Event.EventId,
-                EventName = p.Event.EventName,
-                EventCategory = p.Event.EventCategory,
-                EventStartDate = p.Event.StartDate,
-                EventEndDate = p.Event.EndDate,
-                EventLocation = p.Event.Location,
-                EventPrice = p.Event.Price
-            }).ToList();
+            var user = _userService.GetUserById(request.UserId);
+            var purchases = _purchaseService.GetUserPurchases(request.UserId);
+            return purchases.Select(PurchaseResponseGenerator.ToUserEventResponse).ToList();
         }
     }
 }
-         
 
 
 

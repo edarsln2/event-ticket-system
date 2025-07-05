@@ -124,15 +124,13 @@ D:\EventTicketSystem\EventTicketSystem\bin\Debug\net8.0\EventTicketSystem.Factor
 D:\EventTicketSystem\EventTicketSystem\bin\Debug\net8.0\EventTicketSystem.Repository.dll
 D:\EventTicketSystem\EventTicketSystem\bin\Debug\net8.0\EventTicketSystem.Service.dll
 D:\EventTicketSystem\EventTicketSystem\bin\Debug\net8.0\EventTicketSystem.Validation.dll
-D:\EventTicketSystem\EventTicketSystem\bin\Debug\net8.0\EventTicketSystemActionStorage.dll
 D:\EventTicketSystem\EventTicketSystem\bin\Debug\net8.0\EventTicketSystem.Application.pdb
 D:\EventTicketSystem\EventTicketSystem\bin\Debug\net8.0\EventTicketSystem.Dto.pdb
+D:\EventTicketSystem\EventTicketSystem\bin\Debug\net8.0\EventTicketSystem.Validation.pdb
 D:\EventTicketSystem\EventTicketSystem\bin\Debug\net8.0\EventTicketSystem.Entity.pdb
 D:\EventTicketSystem\EventTicketSystem\bin\Debug\net8.0\EventTicketSystem.Factory.pdb
 D:\EventTicketSystem\EventTicketSystem\bin\Debug\net8.0\EventTicketSystem.Repository.pdb
 D:\EventTicketSystem\EventTicketSystem\bin\Debug\net8.0\EventTicketSystem.Service.pdb
-D:\EventTicketSystem\EventTicketSystem\bin\Debug\net8.0\EventTicketSystem.Validation.pdb
-D:\EventTicketSystem\EventTicketSystem\bin\Debug\net8.0\EventTicketSystemActionStorage.pdb
 D:\EventTicketSystem\EventTicketSystem\obj\Debug\net8.0\EventTicketSystem.Api.csproj.AssemblyReference.cache
 D:\EventTicketSystem\EventTicketSystem\obj\Debug\net8.0\EventTicketSystem.Api.GeneratedMSBuildEditorConfig.editorconfig
 D:\EventTicketSystem\EventTicketSystem\obj\Debug\net8.0\EventTicketSystem.Api.AssemblyInfoInputs.cache
@@ -140,6 +138,7 @@ D:\EventTicketSystem\EventTicketSystem\obj\Debug\net8.0\EventTicketSystem.Api.As
 D:\EventTicketSystem\EventTicketSystem\obj\Debug\net8.0\EventTicketSystem.Api.csproj.CoreCompileInputs.cache
 D:\EventTicketSystem\EventTicketSystem\obj\Debug\net8.0\EventTicketSystem.Api.MvcApplicationPartsAssemblyInfo.cs
 D:\EventTicketSystem\EventTicketSystem\obj\Debug\net8.0\EventTicketSystem.Api.MvcApplicationPartsAssemblyInfo.cache
+D:\EventTicketSystem\EventTicketSystem\obj\Debug\net8.0\EventTicketSystem.Api.sourcelink.json
 D:\EventTicketSystem\EventTicketSystem\obj\Debug\net8.0\staticwebassets.build.json
 D:\EventTicketSystem\EventTicketSystem\obj\Debug\net8.0\staticwebassets.development.json
 D:\EventTicketSystem\EventTicketSystem\obj\Debug\net8.0\staticwebassets\msbuild.EventTicketSystem.Api.Microsoft.AspNetCore.StaticWebAssets.props

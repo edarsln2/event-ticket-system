@@ -4,7 +4,6 @@ using EventTicketSystem.Factory;
 using EventTicketSystem.Repository;
 using EventTicketSystem.Service;
 using EventTicketSystem.Validation;
-using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 

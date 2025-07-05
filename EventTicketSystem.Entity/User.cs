@@ -17,6 +17,5 @@ namespace EventTicketSystem.Entity
         [Column("password")]
         public string PasswordHash { get; set; }
 
-        public List<Purchase> Purchases{ get; set; } = new(); 
     }
 }

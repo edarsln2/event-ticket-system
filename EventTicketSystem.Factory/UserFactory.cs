@@ -1,18 +1,16 @@
-﻿using BCrypt.Net;
-using EventTicketSystem.Dto.Request;
-using EventTicketSystem.Entity;
+﻿using EventTicketSystem.Entity;
 
 namespace EventTicketSystem.Factory
 {
     public class UserFactory
     {
-        public User CreateUser(RegisterUserRequest request)
+        public User CreateUser(string userName, string email, string password)
         {
             return new User
             {
-                UserName = request.UserName,
-                Email = request.Email,
-                PasswordHash = HashPassword(request.Password)
+                UserName = userName,
+                Email = email,
+                PasswordHash = HashPassword(password)
             };
         }
 
@@ -20,6 +18,5 @@ namespace EventTicketSystem.Factory
         {
             return BCrypt.Net.BCrypt.HashPassword(password);
         }
-
     }
 }

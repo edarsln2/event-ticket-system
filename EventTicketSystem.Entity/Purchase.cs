@@ -8,7 +8,6 @@ namespace EventTicketSystem.Entity
         [Column("purchaseid")]
         public int PurchaseId { get; set; }
 
-
         [ForeignKey("User")]
         [Column("userid")]
         public int UserId { get; set; }
@@ -25,7 +24,6 @@ namespace EventTicketSystem.Entity
 
         [Column("purchasedate")]
         public DateTime PurchaseDate { get; set; }
-
 
         public User User { get; set; }
         public Event Event { get; set; }

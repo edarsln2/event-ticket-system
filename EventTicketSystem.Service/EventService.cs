@@ -1,74 +1,64 @@
-﻿using EventTicketSystem.Dto.Request;
-using EventTicketSystem.Entity;
+﻿using EventTicketSystem.Entity;
 using EventTicketSystem.Factory;
-using EventTicketSystem.Repository;
-using Microsoft.EntityFrameworkCore;
 
 namespace EventTicketSystem.Service
 {
     public class EventService
     {
-        private readonly EventRepository _repositoryEvent;
-        private readonly EventFactory _factoryEvent;
+        private readonly EventRepository _eventRepository;
+        private readonly EventFactory _eventFactory;
 
-        public EventService(EventRepository repositoryEvent, EventFactory factoryEvent)
+        public EventService(EventRepository eventRepository, EventFactory eventFactory)
         {
-            _repositoryEvent = repositoryEvent;
-            _factoryEvent = factoryEvent;
+            _eventRepository = eventRepository;
+            _eventFactory = eventFactory;
         }
 
-        public Event InsertEvent(InsertEventRequest request)
+        public Event InsertEvent(string eventCategory, string eventName, DateTime startDate, DateTime endDate, string location, decimal price, int totalCapacity)
         {
-            var evnt = _factoryEvent.CreateEvent(request);
-            return _repositoryEvent.InsertEvent(evnt);
+            var evnt = _eventFactory.CreateEvent(eventCategory, eventName, startDate, endDate, location, price, totalCapacity);
+            return _eventRepository.InsertEvent(evnt);
         }
 
         public void DeleteEvent(int eventId)
         {
-            var existingEvent = _repositoryEvent.GetEventById(eventId);
+            var evnt = GetEventByIdOrThrow(eventId);
+            _eventRepository.DeleteEvent(evnt);
+        }
 
-            if (existingEvent == null)
-            {
-                throw new InvalidOperationException("Silinecek etkinlik bulunamadı.");
-            }
-
-            _repositoryEvent.DeleteEvent(eventId);
+        public Event? GetEventById(int id)
+        {
+            return _eventRepository.GetEventById(id);
         }
 
         public List<Event> GetEventList()
         {
-            return _repositoryEvent.GetEventList();
+            return _eventRepository.GetEventList();
         }
 
-        public Event GetEventById(int eventId)
+        public Event GetEventByIdOrThrow(int eventId)
         {
-            var evnt = _repositoryEvent.GetEventById(eventId);
-
+            var evnt = _eventRepository.GetEventById(eventId);
             if (evnt == null)
             {
-                throw new InvalidOperationException("Etkinlik bulunamadı.");
+                throw new Exception("Etkinlik bulunamadı.");
             }
-
             return evnt;
         }
 
-        public void SellTickets(int eventId, int quantity)
+        public Event SellTicket(int eventId, int quantity)
         {
-            var evnt = GetEventById(eventId);
-            evnt.SellTickets(quantity);
-            _repositoryEvent.UpdateCapacity(evnt);
-        }
+            var evnt = GetEventByIdOrThrow(eventId);
 
-        public bool IsEventActive(int eventId)
-        {
-            var evnt = GetEventById(eventId);
-            return evnt.StartDate <= DateTime.Now && evnt.EndDate >= DateTime.Now;
-        }
+            if (evnt.AvailableCapacity < quantity)
+            {
+                throw new Exception("Yetersiz kapasite");
+            }
 
-        public int GetAvailableCapacity(int eventId)
-        {
-            var evnt = GetEventById(eventId);
-            return evnt.TotalCapacity - evnt.TicketSold;
+            evnt.TicketSold += quantity;
+            evnt.AvailableCapacity -= quantity;
+            _eventRepository.UpdateTicketSold(evnt);
+            return evnt;
         }
     }
 }

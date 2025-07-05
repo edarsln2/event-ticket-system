@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 using EventTicketSystem.Application;
 using System.Text.Json;
 using FluentValidation;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Components.Forms;
 
 namespace EventTicketSystem.Api.Controllers
 {
@@ -17,27 +19,24 @@ namespace EventTicketSystem.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Handle(
-            [FromHeader(Name = "action")] string action,
-            [FromBody] JsonElement body)
+        public async Task<IActionResult> Handle([FromHeader(Name = "action")] string action, [FromBody] JsonElement body)
         {
-            var actionDefination = ActionStorage.Actions[action];
-            var model = actionDefination.MethodParamType != null ? body.Deserialize(actionDefination.MethodParamType) : null;
+            var actionDefinition = ActionStorage.Actions[action]; 
 
-            if (actionDefination.ValidationType != null)
+            var request = body.Deserialize(actionDefinition.MethodParamType);
+
+            if (actionDefinition.ValidationType != null)
             {
-                var validator = (IValidator)HttpContext.RequestServices.GetRequiredService(actionDefination.ValidationType);
-                var context = new ValidationContext<object>(model);
-                var result = await validator.ValidateAsync(context);
-                if (!result.IsValid)
+                var validatorInstance = (IValidator)Activator.CreateInstance(actionDefinition.ValidationType)!;
+                var validationResult = await validatorInstance.ValidateAsync(new ValidationContext<object>(request));
+                if (!validationResult.IsValid)
                 {
-                    return BadRequest(result.Errors);
+                    return BadRequest(validationResult.Errors);
                 }
             }
 
-            var app = HttpContext.RequestServices.GetRequiredService(actionDefination.ApplicationType);
-            var method = actionDefination.ApplicationType.GetMethod(actionDefination.MethodName);
-            var response = method.Invoke(app, model != null ? new[] { model } : null);
+            var method = typeof(EventApplication).GetMethod(actionDefinition.MethodName);
+            var response = method.Invoke(_application, new[] { request });
 
             return Ok(response);
         }

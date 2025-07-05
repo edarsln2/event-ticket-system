@@ -4,7 +4,6 @@
     {
         public int PurchaseId { get; set; }
         public int EventId { get; set; }
-        public string EventName { get; set; }
         public int TicketCount { get; set; }
         public decimal TotalPrice { get; set; }
         public DateTime PurchaseDate { get; set; }

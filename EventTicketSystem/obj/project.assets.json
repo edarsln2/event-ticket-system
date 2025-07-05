@@ -1151,15 +1151,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
-          "AutoMapper": "12.0.1",
-          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "EventTicketSystem.Dto": "1.0.0",
-          "EventTicketSystem.Entity": "1.0.0",
-          "EventTicketSystem.Factory": "1.0.0",
-          "EventTicketSystem.Repository": "1.0.0",
-          "EventTicketSystem.Service": "1.0.0",
-          "EventTicketSystem.Validation": "1.0.0",
-          "Npgsql": "9.0.3"
+          "EventTicketSystem.Service": "1.0.0"
         },
         "compile": {
           "bin/placeholder/EventTicketSystem.Application.dll": {}
@@ -1240,12 +1233,10 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
-          "AutoMapper": "12.0.1",
-          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "EventTicketSystem.Dto": "1.0.0",
+          "EventTicketSystem.Entity": "1.0.0",
           "EventTicketSystem.Factory": "1.0.0",
-          "EventTicketSystem.Repository": "1.0.0",
-          "Npgsql": "9.0.3"
+          "EventTicketSystem.Repository": "1.0.0"
         },
         "compile": {
           "bin/placeholder/EventTicketSystem.Service.dll": {}
@@ -1269,20 +1260,6 @@
         },
         "runtime": {
           "bin/placeholder/EventTicketSystem.Validation.dll": {}
-        }
-      },
-      "EventTicketSystemActionStorage/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "dependencies": {
-          "EventTicketSystem.Application": "1.0.0",
-          "EventTicketSystem.Dto": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/EventTicketSystemActionStorage.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/EventTicketSystemActionStorage.dll": {}
         }
       }
     }
@@ -3750,11 +3727,6 @@
       "type": "project",
       "path": "../EventTicketSystem.Validation/EventTicketSystem.Validation.csproj",
       "msbuildProject": "../EventTicketSystem.Validation/EventTicketSystem.Validation.csproj"
-    },
-    "EventTicketSystemActionStorage/1.0.0": {
-      "type": "project",
-      "path": "../EventTicketSystemActionStorage/EventTicketSystemActionStorage.csproj",
-      "msbuildProject": "../EventTicketSystemActionStorage/EventTicketSystemActionStorage.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -3764,12 +3736,7 @@
       "BCrypt.Net-Next >= 4.0.3",
       "EventTicketSystem.Application >= 1.0.0",
       "EventTicketSystem.Dto >= 1.0.0",
-      "EventTicketSystem.Entity >= 1.0.0",
-      "EventTicketSystem.Factory >= 1.0.0",
-      "EventTicketSystem.Repository >= 1.0.0",
-      "EventTicketSystem.Service >= 1.0.0",
       "EventTicketSystem.Validation >= 1.0.0",
-      "EventTicketSystemActionStorage >= 1.0.0",
       "FluentValidation >= 12.0.0",
       "FluentValidation.AspNetCore >= 11.3.1",
       "Microsoft.EntityFrameworkCore >= 9.0.6",
@@ -3813,23 +3780,8 @@
             "D:\\EventTicketSystem\\EventTicketSystem.Dto\\EventTicketSystem.Dto.csproj": {
               "projectPath": "D:\\EventTicketSystem\\EventTicketSystem.Dto\\EventTicketSystem.Dto.csproj"
             },
-            "D:\\EventTicketSystem\\EventTicketSystem.Entity\\EventTicketSystem.Entity.csproj": {
-              "projectPath": "D:\\EventTicketSystem\\EventTicketSystem.Entity\\EventTicketSystem.Entity.csproj"
-            },
-            "D:\\EventTicketSystem\\EventTicketSystem.Factory\\EventTicketSystem.Factory.csproj": {
-              "projectPath": "D:\\EventTicketSystem\\EventTicketSystem.Factory\\EventTicketSystem.Factory.csproj"
-            },
-            "D:\\EventTicketSystem\\EventTicketSystem.Repository\\EventTicketSystem.Repository.csproj": {
-              "projectPath": "D:\\EventTicketSystem\\EventTicketSystem.Repository\\EventTicketSystem.Repository.csproj"
-            },
-            "D:\\EventTicketSystem\\EventTicketSystem.Service\\EventTicketSystem.Service.csproj": {
-              "projectPath": "D:\\EventTicketSystem\\EventTicketSystem.Service\\EventTicketSystem.Service.csproj"
-            },
             "D:\\EventTicketSystem\\EventTicketSystem.Validation\\EventTicketSystem.Validation.csproj": {
               "projectPath": "D:\\EventTicketSystem\\EventTicketSystem.Validation\\EventTicketSystem.Validation.csproj"
-            },
-            "D:\\EventTicketSystem\\EventTicketSystemActionStorage\\EventTicketSystemActionStorage.csproj": {
-              "projectPath": "D:\\EventTicketSystem\\EventTicketSystemActionStorage\\EventTicketSystemActionStorage.csproj"
             }
           }
         }

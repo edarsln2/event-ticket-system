@@ -10,7 +10,7 @@
         public decimal Price { get; set; }
         public int TotalCapacity { get; set; }
         public int TicketSold { get; set; }
-        public int AvailableTickets { get; set; }
+        public int AvailableCapacity { get; set; }
     }
 }
 

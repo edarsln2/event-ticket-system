@@ -10,6 +10,7 @@ D:\EventTicketSystem\EventTicketSystem.Factory\obj\Debug\net8.0\EventTicketSyste
 D:\EventTicketSystem\EventTicketSystem.Factory\obj\Debug\net8.0\EventTicketSystem.Factory.AssemblyInfoInputs.cache
 D:\EventTicketSystem\EventTicketSystem.Factory\obj\Debug\net8.0\EventTicketSystem.Factory.AssemblyInfo.cs
 D:\EventTicketSystem\EventTicketSystem.Factory\obj\Debug\net8.0\EventTicketSystem.Factory.csproj.CoreCompileInputs.cache
+D:\EventTicketSystem\EventTicketSystem.Factory\obj\Debug\net8.0\EventTicketSystem.Factory.sourcelink.json
 D:\EventTicketSystem\EventTicketSystem.Factory\obj\Debug\net8.0\EventTic.1102EC80.Up2Date
 D:\EventTicketSystem\EventTicketSystem.Factory\obj\Debug\net8.0\EventTicketSystem.Factory.dll
 D:\EventTicketSystem\EventTicketSystem.Factory\obj\Debug\net8.0\refint\EventTicketSystem.Factory.dll

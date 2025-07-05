@@ -1,41 +1,24 @@
 ﻿using EventTicketSystem.Entity;
-using EventTicketSystem.Dto.Request;
 
 namespace EventTicketSystem.Factory
 {
     public class EventFactory
     {
-        public Event CreateEvent(InsertEventRequest request)
+        public Event CreateEvent(string eventCategory, string eventName, DateTime startDate, DateTime endDate, string location, decimal price, int totalCapacity)
         {
+
             return new Event
             {
-                EventCategory = request.EventCategory,
-                EventName = request.EventName,
-                StartDate = request.StartDate,
-                EndDate = request.EndDate,
-                Location = request.Location,
-                Price = request.Price,
-                TotalCapacity = request.TotalCapacity,
-                TicketSold = 0
+                EventCategory = eventCategory,
+                EventName = eventName,
+                StartDate = startDate,
+                EndDate = endDate,
+                Location = location,
+                Price = price,
+                TotalCapacity = totalCapacity,
+                TicketSold = 0,
+                AvailableCapacity = totalCapacity,
             };
         }
     }
 }
-
-//namespace EventTicketSystem.Factory
-//{
-//    public class EventFactory
-//    {
-//        private readonly IMapper _mapper;
-
-//        public EventFactory(IMapper mapper)
-//        {
-//            _mapper = mapper;
-//        }
-
-//        public Event CreateEvent(InsertEventRequest request)
-//        {
-//            return _mapper.Map<Event>(request);
-//        }
-//    }
-//}

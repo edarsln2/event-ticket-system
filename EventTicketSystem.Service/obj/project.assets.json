@@ -907,12 +907,10 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "AutoMapper >= 12.0.1",
-      "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
       "EventTicketSystem.Dto >= 1.0.0",
+      "EventTicketSystem.Entity >= 1.0.0",
       "EventTicketSystem.Factory >= 1.0.0",
-      "EventTicketSystem.Repository >= 1.0.0",
-      "Npgsql >= 9.0.3"
+      "EventTicketSystem.Repository >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -946,6 +944,9 @@
             "D:\\EventTicketSystem\\EventTicketSystem.Dto\\EventTicketSystem.Dto.csproj": {
               "projectPath": "D:\\EventTicketSystem\\EventTicketSystem.Dto\\EventTicketSystem.Dto.csproj"
             },
+            "D:\\EventTicketSystem\\EventTicketSystem.Entity\\EventTicketSystem.Entity.csproj": {
+              "projectPath": "D:\\EventTicketSystem\\EventTicketSystem.Entity\\EventTicketSystem.Entity.csproj"
+            },
             "D:\\EventTicketSystem\\EventTicketSystem.Factory\\EventTicketSystem.Factory.csproj": {
               "projectPath": "D:\\EventTicketSystem\\EventTicketSystem.Factory\\EventTicketSystem.Factory.csproj"
             },
@@ -969,20 +970,6 @@
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
-        "dependencies": {
-          "AutoMapper": {
-            "target": "Package",
-            "version": "[12.0.1, )"
-          },
-          "AutoMapper.Extensions.Microsoft.DependencyInjection": {
-            "target": "Package",
-            "version": "[12.0.1, )"
-          },
-          "Npgsql": {
-            "target": "Package",
-            "version": "[9.0.3, )"
-          }
-        },
         "imports": [
           "net461",
           "net462",

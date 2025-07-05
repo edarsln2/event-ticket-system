@@ -1,1 +1,14 @@
 .vs/
+bin/
+obj/
+*.user
+*.suo
+*.dll
+*.pdb
+*.exe
+*.cache
+*.log
+*.nuget.*
+project.assets.json
+
+

@@ -32,16 +32,8 @@ namespace EventTicketSystem.Entity
         [Column("ticketsold")]
         public int TicketSold { get; set; }
 
-        public void SellTickets(int quantity)
-        {
-            if (quantity <= 0)
-                throw new ArgumentOutOfRangeException(nameof(quantity), "Satılacak bilet adedi pozitif olmalı.");
+        [Column("availablecapacity")]
+        public int AvailableCapacity { get; set; }
 
-            int availableCapacity = TotalCapacity - TicketSold;
-            if (availableCapacity < quantity)
-                throw new InvalidOperationException("Yeterli kapasite yok.");
-
-            TicketSold += quantity;
-        }
     }
 }

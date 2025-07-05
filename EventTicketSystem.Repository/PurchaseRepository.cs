@@ -22,10 +22,7 @@ namespace EventTicketSystem.Repository
 
         public List<Purchase> GetPurchasesByUserId(int userId)
         {
-            return _context.Purchases
-                           .Where(p => p.UserId == userId)
-                           .Include(p => p.Event) 
-                           .ToList();
+            return _context.Purchases.Where(p => p.UserId == userId).Include(p => p.Event).ToList();
         }
     }
 }

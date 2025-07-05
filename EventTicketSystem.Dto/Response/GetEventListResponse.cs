@@ -1,5 +1,5 @@
 ﻿
-namespace EventTicketSystem.Dto.Responses
+namespace EventTicketSystem.Dto.Response
 {
     public class GetEventListResponse
     {
@@ -10,6 +10,6 @@ namespace EventTicketSystem.Dto.Responses
         public DateTime EndDate { get; set; }
         public string Location { get; set; }
         public decimal Price { get; set; }
-        public int AvailableTickets { get; set; }
+        public int AvailableCapacity { get; set; }
     }
 }

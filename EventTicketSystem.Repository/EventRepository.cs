@@ -17,15 +17,10 @@ public class EventRepository
         return evnt;
     }
 
-    public void DeleteEvent(int eventId)
+    public void DeleteEvent(Event evnt)
     {
-        var evnt = _context.Events.Find(eventId);
-
-        if (evnt != null)
-        {
-            _context.Events.Remove(evnt);
-            _context.SaveChanges();
-        }
+        _context.Events.Remove(evnt);
+        _context.SaveChanges();
     }
 
     public Event? GetEventById(int id)
@@ -33,15 +28,14 @@ public class EventRepository
         return _context.Events.FirstOrDefault(e => e.EventId == id);
     }
 
-
     public List<Event> GetEventList()
     {
-        return _context.Events.ToList();
+        return _context.Events.Where(e => e.AvailableCapacity > 0 && e.StartDate <= DateTime.UtcNow && e.EndDate >= DateTime.UtcNow).ToList();
     }
 
-    public void UpdateCapacity(Event evnt)
+    public void UpdateTicketSold(Event evnt)
     {
         _context.Events.Update(evnt);
-        _context.SaveChanges(); 
+        _context.SaveChanges();
     }
 }

@@ -6,6 +6,7 @@ D:\EventTicketSystem\EventTicketSystem.Entity\obj\Debug\net8.0\EventTicketSystem
 D:\EventTicketSystem\EventTicketSystem.Entity\obj\Debug\net8.0\EventTicketSystem.Entity.AssemblyInfoInputs.cache
 D:\EventTicketSystem\EventTicketSystem.Entity\obj\Debug\net8.0\EventTicketSystem.Entity.AssemblyInfo.cs
 D:\EventTicketSystem\EventTicketSystem.Entity\obj\Debug\net8.0\EventTicketSystem.Entity.csproj.CoreCompileInputs.cache
+D:\EventTicketSystem\EventTicketSystem.Entity\obj\Debug\net8.0\EventTicketSystem.Entity.sourcelink.json
 D:\EventTicketSystem\EventTicketSystem.Entity\obj\Debug\net8.0\EventTicketSystem.Entity.dll
 D:\EventTicketSystem\EventTicketSystem.Entity\obj\Debug\net8.0\refint\EventTicketSystem.Entity.dll
 D:\EventTicketSystem\EventTicketSystem.Entity\obj\Debug\net8.0\EventTicketSystem.Entity.pdb
