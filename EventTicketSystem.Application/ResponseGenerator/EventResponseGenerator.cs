@@ -25,7 +25,7 @@ namespace EventTicketSystem.Application.ResponseGenerators
                 Price = evnt.Price,
                 TotalCapacity = evnt.TotalCapacity,
                 TicketSold = evnt.TicketSold,
-                AvailableCapacity = evnt.TotalCapacity - evnt.TicketSold
+                AvailableCapacity = evnt.AvailableCapacity
             };
         }
 
@@ -40,7 +40,7 @@ namespace EventTicketSystem.Application.ResponseGenerators
                 EndDate = evnt.EndDate,
                 Location = evnt.Location,
                 Price = evnt.Price,
-                AvailableCapacity = evnt.TotalCapacity - evnt.TicketSold
+                AvailableCapacity = evnt.AvailableCapacity
             }).ToList();
         }
     }
