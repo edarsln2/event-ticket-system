@@ -1,0 +1,20 @@
+bin/\nobj/\n*.dll\n*.pdb\n*.exe\n*.cache\n*.log\n*.vs/\n.vscode/
+# Build dosyaları
+bin/
+obj/
+
+# Visual Studio dosyaları
+.vs/
+
+# Rider, JetBrains
+.idea/
+
+# Kullanıcı ve sistem dosyaları
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# OS dosyaları
+Thumbs.db
+.DS_Store
