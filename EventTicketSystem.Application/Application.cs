@@ -53,7 +53,7 @@ namespace EventTicketSystem.Application
         {
             var user = _userService.GetUserById(request.UserId);
             var evnt = _eventService.SellTicket(request.EventId, request.Quantity);
-            var purchase = _purchaseService.PurchaseTicket(user.UserId, evnt.EventId, request.Quantity, evnt.Price);
+            var purchase = _purchaseService.PurchaseTicket(request.UserId, request.EventId, request.Quantity, evnt.Price);
             return PurchaseResponseGenerator.ToPurchaseTicketResponse(purchase);
         }
 
