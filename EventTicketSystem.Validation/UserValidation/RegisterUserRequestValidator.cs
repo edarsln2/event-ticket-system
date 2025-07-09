@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using EventTicketSystem.Dto.Request;
+using EventTicketSystem.Dto.Request.UserRequest;
 
 public class RegisterUserRequestValidator : AbstractValidator<RegisterUserRequest>
 {

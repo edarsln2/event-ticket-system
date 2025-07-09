@@ -1,5 +1,4 @@
-﻿
-namespace EventTicketSystem.Dto.Response
+﻿namespace EventTicketSystem.Dto.Response.EventResponse
 {
     public class GetEventListResponse
     {

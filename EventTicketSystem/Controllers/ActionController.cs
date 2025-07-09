@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
-using EventTicketSystem.Application;
 using System.Text.Json;
 using FluentValidation;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Components.Forms;
+using EventTicketSystem.WebApi.ApplicationStorage;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EventTicketSystem.Api.Controllers
 {
@@ -11,32 +11,65 @@ namespace EventTicketSystem.Api.Controllers
     [Route("/")]
     public class EventController : ControllerBase
     {
-        private readonly EventApplication _application;
+        private readonly ApplicationStorage _applicationStorage;
 
-        public EventController(EventApplication application)
+        public EventController(ApplicationStorage applicationStorage)
         {
-            _application = application;
+            _applicationStorage = applicationStorage;
         }
 
         [HttpPost]
-        public async Task<IActionResult> Handle([FromHeader(Name = "action")] string action, [FromBody] JsonElement body)
+        public async Task<IActionResult> Handle(
+            [FromHeader(Name = "action")] string action,
+            [FromBody] JsonElement body)
         {
             var actionDefinition = ActionStorage.Actions[action];
 
-            var request = actionDefinition.MethodParamType == null ? null : body.Deserialize(actionDefinition.MethodParamType);
+            object? request = null;
+
+            if (actionDefinition.MethodParamType != null)
+            {
+                request = body.Deserialize(actionDefinition.MethodParamType);
+            }
 
             if (actionDefinition.ValidationType != null)
             {
-                var validatorInstance = (IValidator)Activator.CreateInstance(actionDefinition.ValidationType)!;
-                var validationResult = await validatorInstance.ValidateAsync(new ValidationContext<object>(request));
+                var validator = (IValidator)Activator.CreateInstance(actionDefinition.ValidationType)!;
+                var validationResult = await validator.ValidateAsync(new ValidationContext<object>(request!));
                 if (!validationResult.IsValid)
                 {
                     return BadRequest(validationResult.Errors);
                 }
             }
 
-            var method = typeof(EventApplication).GetMethod(actionDefinition.MethodName);
-            var response = actionDefinition.MethodParamType == null ? method.Invoke(_application, null) : method.Invoke(_application, new[] { request });
+            var application = _applicationStorage.GetApplication(actionDefinition.ApplicationType);
+            var method = actionDefinition.ApplicationType.GetMethod(actionDefinition.MethodName);
+
+            if (method == null)
+            {
+                return BadRequest("Metot bulunamadý.");
+            }
+
+            object? response;
+
+            var parameters = method.GetParameters();
+
+            if (parameters.Length == 0)
+            {
+                response = method.Invoke(application, null);
+            }
+            else if (parameters.Length == 1 && parameters[0].ParameterType == typeof(ClaimsPrincipal))
+            {
+                response = method.Invoke(application, new object[] { User });
+            }
+            else if (parameters.Length == 2 && parameters[1].ParameterType == typeof(ClaimsPrincipal))
+            {
+                response = method.Invoke(application, new object[] { request!, User });
+            }
+            else
+            {
+                response = method.Invoke(application, new[] { request });
+            }
 
             return Ok(response);
         }

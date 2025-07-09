@@ -1,4 +1,4 @@
-﻿namespace EventTicketSystem.Dto.Request
+﻿namespace EventTicketSystem.Dto.Request.UserRequest
 {
     public class RegisterUserRequest
     {

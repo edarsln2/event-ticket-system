@@ -8,9 +8,8 @@ namespace EventTicketSystem.Entity
         [Column("purchaseid")]
         public int PurchaseId { get; set; }
 
-        [ForeignKey("User")]
         [Column("userid")]
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
 
         [ForeignKey("Event")]
         [Column("eventid")]

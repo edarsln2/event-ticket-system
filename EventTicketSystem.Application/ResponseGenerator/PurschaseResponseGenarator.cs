@@ -1,4 +1,4 @@
-﻿using EventTicketSystem.Dto.Response;
+﻿using EventTicketSystem.Dto.Response.PurchaseResponse;
 using EventTicketSystem.Entity;
 
 namespace EventTicketSystem.Application.ResponseGenerators
@@ -17,14 +17,14 @@ namespace EventTicketSystem.Application.ResponseGenerators
             };
         }
 
-        public static List<UserEventResponse> ToUserEventResponse(List<Purchase> purchases)
+        public static List<UserPurchaseResponse> ToUserPurchaseResponse(List<Purchase> purchases)
         {
-            return purchases.Select(p => new UserEventResponse
+            return purchases.Select(p => new UserPurchaseResponse
             {
                 PurchaseId = p.PurchaseId,
                 EventId = p.EventId,
                 Quantity = p.Quantity,
-                TotalPrice = p.TotalPrice,
+                TotalPrice = p.TotalPrice
             }).ToList();
         }
     }

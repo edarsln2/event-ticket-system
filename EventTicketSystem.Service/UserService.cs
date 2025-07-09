@@ -9,13 +9,11 @@ namespace EventTicketSystem.Service
     {
         private readonly UserRepository _userRepository;
         private readonly UserFactory _userFactory;
-        private readonly PasswordHash _passwordHash;
 
-        public UserService(UserRepository userRepository, UserFactory userFactory, PasswordHash passwordHash)
+        public UserService(UserRepository userRepository, UserFactory userFactory)
         {
             _userRepository = userRepository;
             _userFactory = userFactory;
-            _passwordHash = passwordHash;
         }
 
         public User RegisterUser(string userName, string email, string password)
@@ -26,8 +24,8 @@ namespace EventTicketSystem.Service
                 throw new Exception("Bu e-posta zaten kayıtlı.");
             }
 
-            var hashPassword = _passwordHash.HashPassword(password);
-            var user = _userFactory.CreateUser(userName, email, hashPassword);
+            var hash = PasswordHasher.Hash(password);
+            var user = _userFactory.CreateUser(userName, email, hash);
             return _userRepository.RegisterUser(user);
         }
 
@@ -41,5 +39,23 @@ namespace EventTicketSystem.Service
 
             return user;
         }
+
+        public User Login(string email, string password)
+        {
+            var user = _userRepository.GetByUserEmail(email);
+            if (user == null)
+            {
+                throw new Exception("Kullanıcı bulunamadı.");
+            }
+
+            var psswrd = PasswordHasher.Verify(password, user.PasswordHash);
+            if (!psswrd)
+            {
+                throw new Exception("Şifre hatalı.");
+            }
+
+            return user;
+        }
+
     }
 }

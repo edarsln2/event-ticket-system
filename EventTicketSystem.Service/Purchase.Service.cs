@@ -15,9 +15,9 @@ namespace EventTicketSystem.Service
             _purchaseFactory = purchaseFactory;
         }
 
-        public Purchase PurchaseTicket(int user, int evnt, int quantity, decimal eventPrice)
+        public Purchase PurchaseTicket(int? userId, int eventId, int quantity, decimal price)
         {
-            var purchase = _purchaseFactory.CreatePurchase(user, evnt, quantity, eventPrice);
+            var purchase = _purchaseFactory.CreatePurchase(userId, eventId, quantity, price);
             return _purchaseRepository.PurchaseTicket(purchase);
         }
 

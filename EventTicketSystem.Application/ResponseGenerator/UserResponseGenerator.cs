@@ -1,4 +1,4 @@
-﻿using EventTicketSystem.Dto.Response;
+﻿using EventTicketSystem.Dto.Response.UserResponse;
 using EventTicketSystem.Entity;
 
 namespace EventTicketSystem.Application.ResponseGenerators

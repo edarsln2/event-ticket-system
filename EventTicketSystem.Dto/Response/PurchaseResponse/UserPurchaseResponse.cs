@@ -1,7 +1,6 @@
-﻿
-namespace EventTicketSystem.Dto.Response
+﻿namespace EventTicketSystem.Dto.Response.PurchaseResponse
 {
-    public class UserEventResponse
+    public class UserPurchaseResponse
     {
         public int PurchaseId { get; set; }
         public int EventId { get; set; }

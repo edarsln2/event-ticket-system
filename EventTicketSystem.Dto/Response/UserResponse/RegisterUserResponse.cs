@@ -1,4 +1,4 @@
-﻿namespace EventTicketSystem.Dto.Response
+﻿namespace EventTicketSystem.Dto.Response.UserResponse
 {
     public class RegisterUserResponse
     {

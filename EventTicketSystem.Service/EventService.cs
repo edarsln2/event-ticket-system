@@ -26,10 +26,12 @@ namespace EventTicketSystem.Service
             var evnt = _eventRepository.GetEventById(eventId);
             if (evnt == null)
             {
-                throw new Exception("Etkinlik bulunamadı.");
+                throw new Exception("Silinecek etkinlik bulunamadı.");
             }
+
             _eventRepository.DeleteEvent(evnt);
         }
+
 
         public Event GetEventById(int eventId)
         {

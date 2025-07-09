@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using EventTicketSystem.Dto.Request;
+using EventTicketSystem.Dto.Request.EventRequest;
 
 public class InsertEventRequestValidator : AbstractValidator<InsertEventRequest>
 {

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35004.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventTicketSystem.Api", "EventTicketSystem\EventTicketSystem.Api.csproj", "{D51A24C3-366F-4D85-A379-66648D3D4FB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventTicketSystem.WebApi", "EventTicketSystem\EventTicketSystem.WebApi.csproj", "{D51A24C3-366F-4D85-A379-66648D3D4FB6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventTicketSystem.Entity", "EventTicketSystem.Entity\EventTicketSystem.Entity.csproj", "{D94875A0-C320-417C-9525-CE244871F7C9}"
 EndProject
@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventTicketSystem.Service",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventTicketSystem.Application", "EventTicketSystem.Application\EventTicketSystem.Application.csproj", "{EFD6ADCF-6A55-4CC2-A183-8F31EA193CEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventTicketSystem.Infrastructure", "EventTicketSystem.Infrastructure\EventTicketSystem.Infrastructure.csproj", "{2301E1DE-0818-4BE3-95A8-E171946E4553}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventTicketSystem.Infrastructure", "EventTicketSystem.Infrastructure\EventTicketSystem.Infrastructure.csproj", "{2301E1DE-0818-4BE3-95A8-E171946E4553}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
