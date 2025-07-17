@@ -10,5 +10,7 @@ namespace EventTicketSystem.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Event> Events { get; set; }
         public DbSet<Purchase> Purchases { get; set; }
+        public DbSet<Discount> Discounts { get; set; }
+
     }
 }

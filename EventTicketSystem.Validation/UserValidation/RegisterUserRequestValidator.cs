@@ -18,5 +18,9 @@ public class RegisterUserRequestValidator : AbstractValidator<RegisterUserReques
             .Matches("[A-Z]").WithMessage("En az 1 büyük harf içermeli")
             .Matches("[a-z]").WithMessage("En az 1 küçük harf içermeli")
             .Matches("[0-9]").WithMessage("En az 1 rakam içermeli");
+
+        RuleFor(x => x.BirthDate)
+            .NotEmpty().WithMessage("Doğum tarihi zorunludur.")
+            .LessThan(DateTime.Now).WithMessage("Doğum tarihi bugünden küçük olmalıdır.");
     }
 }

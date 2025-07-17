@@ -1,7 +1,7 @@
 ﻿
 namespace EventTicketSystem.Dto.Request.PurchaseRequest
 {
-    public class PurchaseTicketAsGuestRequest
+    public class PurchaseTicketAsGuestRequest : RequestBase
     {
         public string FullName { get; set; } 
         public string Email { get; set; }     

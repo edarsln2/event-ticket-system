@@ -4,13 +4,14 @@
     {
         private readonly Dictionary<Type, object> _application;
 
-        public ApplicationStorage(EventApplication eventApplication, UserApplication userApplication, PurchaseApplication purchaseApplication)
+        public ApplicationStorage(EventApplication eventApplication, UserApplication userApplication, PurchaseApplication purchaseApplication, DiscountApplication discountApplication)
         {
             _application = new Dictionary<Type, object>
             {
                 { typeof(EventApplication), eventApplication },
                 { typeof(UserApplication), userApplication },
-                { typeof(PurchaseApplication), purchaseApplication }
+                { typeof(PurchaseApplication), purchaseApplication },
+                { typeof(DiscountApplication), discountApplication },
             };
         }
 

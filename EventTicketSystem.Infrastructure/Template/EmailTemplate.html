@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="email-box">
+        <div class="top-banner">
+            Ilginiz Icin Tesekkur Ederiz, Biletiniz Hazir!
+        </div>
+
+        <img src="https://magic-ticketing.info/wp-content/uploads/Ticketing-Partner.png">
+
+        <p>{Event.Name} etkinligi icin</p>
+        <p>{Quantity} adet bilet satin aldiniz.</p>
+        <p>Tutar: {Total.Price} TL </p>
+        <p>Iyi eglenceler dileriz!</p>
+
+        <div class="footer">
+            Bu e-posta Event Ticket System tarafindan otomatik olarak gonderilmistir. Yanitlamayiniz!
+        </div>
+    </div>
+</body>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial;
+            background-color: white;
+            padding: 0;
+            margin: 0;
+            color: white;
+        }
+
+        .email-box {
+            background-color: white;
+            max-width: 650px;
+            margin: auto;
+            border: 1px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .top-banner {
+            background: #000;
+            padding: 20px 20px;
+            font-size: 23px;
+            font-weight: bold;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        .email-box img {
+            width: 100%;
+            max-width: 650px;
+            max-height: 550px;
+            margin: auto;
+            display: block;
+        }
+
+        .email-box p {
+            font-size: 17px;
+            margin: 10px 0;
+            color: #000;
+        }
+
+        .footer {
+            font-size: 14px;
+            color: #000;
+            margin-top: 30px;
+            padding: 10px;
+            border-top: 1px solid #333;
+        }
+    </style>
+</head>
+</html>

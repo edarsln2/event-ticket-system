@@ -16,7 +16,7 @@ namespace EventTicketSystem.Service
             _userFactory = userFactory;
         }
 
-        public User RegisterUser(string userName, string email, string password)
+        public User RegisterUser(string userName, string email, string password, string role, DateTime birthdate)
         {
             var existing = _userRepository.GetByUserEmail(email);
             if (existing != null)
@@ -25,7 +25,7 @@ namespace EventTicketSystem.Service
             }
 
             var hash = PasswordHasher.Hash(password);
-            var user = _userFactory.CreateUser(userName, email, hash);
+            var user = _userFactory.CreateUser(userName, email, hash, role, birthdate);
             return _userRepository.RegisterUser(user);
         }
 
@@ -56,6 +56,23 @@ namespace EventTicketSystem.Service
 
             return user;
         }
+        public bool IsBirthdayToday(DateTime birthDate)
+        {
+            var today = DateTime.Today;
+            return birthDate.Month == today.Month && birthDate.Day == today.Day;
+        }
 
+        public bool IsStudent(DateTime birthDate)
+        {
+            var today = DateTime.Today;
+            int age = today.Year - birthDate.Year;
+
+            if (birthDate.Month > today.Month || (birthDate.Month == today.Month && birthDate.Day > today.Day))
+            {
+                age--;
+            }
+
+            return age >= 18 && age <= 25;
+        }
     }
 }

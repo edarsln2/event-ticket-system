@@ -25,5 +25,10 @@ namespace EventTicketSystem.Service
         {
             return _purchaseRepository.GetPurchasesByUserId(userId);
         }
+
+        public bool IsFirstPurchase(int userId)
+        {
+            return _purchaseRepository.IsFirstPurchase(userId);
+        }
     }
 }

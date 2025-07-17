@@ -1,13 +1,11 @@
 ﻿using EventTicketSystem.Dto.Request.EventRequest;
 using FluentValidation;
 
-public class DeleteEventRequestValidator : AbstractValidator<DeleteEventRequest>
+public class GetEventByIdRequestValidator : AbstractValidator<GetEventByIdRequest>
 {
-    public DeleteEventRequestValidator()
+    public GetEventByIdRequestValidator()
     {
         RuleFor(x => x.EventId)
             .GreaterThan(0).WithMessage("Event ID 0'dan büyük olmalı");
     }
 }
-
-

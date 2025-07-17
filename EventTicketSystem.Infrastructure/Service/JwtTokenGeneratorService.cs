@@ -24,7 +24,9 @@ public class JwtTokenGeneratorService
         {
             new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
             new Claim(ClaimTypes.Email, user.Email),
-            new Claim(ClaimTypes.Name, user.UserName)
+            new Claim(ClaimTypes.Name, user.UserName),
+            new Claim(ClaimTypes.Role, user.Role ?? string.Empty),
+            new Claim(ClaimTypes.DateOfBirth, user.BirthDate.ToString("yyyy-MM-dd"))
         };
 
         var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(signingKey));

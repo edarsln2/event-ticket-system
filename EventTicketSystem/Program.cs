@@ -2,6 +2,7 @@
 using EventTicketSystem.Factory;
 using EventTicketSystem.Repository;
 using EventTicketSystem.Service;
+using EventTicketSystem.Validation.DiscountValidation;
 using EventTicketSystem.Validation.PurchaseValidation;
 using EventTicketSystem.WebApi.ApplicationStorage;
 using FluentValidation.AspNetCore;
@@ -41,27 +42,37 @@ builder.Services.AddAuthorization();
 builder.Services.AddControllers().AddFluentValidation();
 
 builder.Services.AddScoped<InsertEventRequestValidator>();
+builder.Services.AddScoped<DeleteEventRequestValidator>();
+builder.Services.AddScoped<GetEventByIdRequestValidator>();
 builder.Services.AddScoped<RegisterUserRequestValidator>();
 builder.Services.AddScoped<LoginRequestValidator>();
 builder.Services.AddScoped<PurchaseTicketWithLoginRequestValidator>();
+builder.Services.AddScoped<PurchaseTicketAsGuestRequestValidator>();
+builder.Services.AddScoped<InsertDiscountRequestValidator>();
+builder.Services.AddScoped<DeleteDiscountRequestValidator>();
 
 builder.Services.AddScoped<EventApplication>();
 builder.Services.AddScoped<UserApplication>();
 builder.Services.AddScoped<PurchaseApplication>();
+builder.Services.AddScoped<DiscountApplication>();
 builder.Services.AddScoped<ApplicationStorage>();
 
 builder.Services.AddScoped<EventService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<PurchaseService>();
+builder.Services.AddScoped<DiscountService>();
 builder.Services.AddScoped<JwtTokenGeneratorService>();
+builder.Services.AddScoped<EmailSenderService>();
 
 builder.Services.AddScoped<EventRepository>();
 builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<PurchaseRepository>();
+builder.Services.AddScoped<DiscountRepository>();
 
 builder.Services.AddScoped<EventFactory>();
 builder.Services.AddScoped<UserFactory>();
 builder.Services.AddScoped<PurchaseFactory>();
+builder.Services.AddScoped<DiscountFactory>();
 
 var app = builder.Build();
 

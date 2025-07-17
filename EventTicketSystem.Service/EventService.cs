@@ -32,7 +32,6 @@ namespace EventTicketSystem.Service
             _eventRepository.DeleteEvent(evnt);
         }
 
-
         public Event GetEventById(int eventId)
         {
             var evnt = _eventRepository.GetEventById(eventId);
@@ -40,6 +39,7 @@ namespace EventTicketSystem.Service
             {
                 throw new Exception("Etkinlik bulunamadı.");
             }
+
             return evnt;
         }
 
@@ -58,9 +58,14 @@ namespace EventTicketSystem.Service
             }
 
             evnt.TicketSold += quantity;
-            evnt.AvailableCapacity -= evnt.TotalCapacity - evnt.TicketSold;
+            evnt.AvailableCapacity = evnt.TotalCapacity - evnt.TicketSold;
             _eventRepository.UpdateTicketSold(evnt);
             return evnt;
+        }
+
+        public bool IsEventInLastWeek(DateTime startDate)
+        {
+            return (startDate.Date - DateTime.Today).TotalDays <= 7;
         }
     }
 }

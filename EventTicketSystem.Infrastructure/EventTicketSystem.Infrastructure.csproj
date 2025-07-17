@@ -16,4 +16,10 @@
     <ProjectReference Include="..\EventTicketSystem.Repository\EventTicketSystem.Repository.csproj" />
   </ItemGroup>
 
+<ItemGroup>
+  <Content Include="Template\EmailTemplate.html">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </Content>
+</ItemGroup>
+
 </Project>

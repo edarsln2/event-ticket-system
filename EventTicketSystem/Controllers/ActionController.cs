@@ -3,7 +3,7 @@ using System.Text.Json;
 using FluentValidation;
 using EventTicketSystem.WebApi.ApplicationStorage;
 using System.Security.Claims;
-using Microsoft.AspNetCore.Authorization;
+using EventTicketSystem.Dto.Request;
 
 namespace EventTicketSystem.Api.Controllers
 {
@@ -23,19 +23,45 @@ namespace EventTicketSystem.Api.Controllers
             [FromHeader(Name = "action")] string action,
             [FromBody] JsonElement body)
         {
-            var actionDefinition = ActionStorage.Actions[action];
-
-            object? request = null;
-
-            if (actionDefinition.MethodParamType != null)
+            if (!ActionStorage.Actions.TryGetValue(action, out var actionDefinition))
             {
-                request = body.Deserialize(actionDefinition.MethodParamType);
+                return BadRequest("Geçersiz action.");
             }
 
+            var request = body.Deserialize(actionDefinition.MethodParamType);
+
+            if (request is RequestBase requestBase)
+            {
+                requestBase.UserInfo = User;
+
+                if (requestBase.LoginRequired)
+                {
+                    if (!User.Identity?.IsAuthenticated ?? true)
+                    {
+                        return Unauthorized();
+                    }
+
+                    if (User.FindFirst(ClaimTypes.NameIdentifier) == null)
+                    {
+                        return Forbid();
+                    }
+
+                    if (actionDefinition.Role != null)
+                    {
+                        var role = User.FindFirst(ClaimTypes.Role)?.Value?.ToLower();
+                        if (role != actionDefinition.Role.ToLower())
+                        {
+                            return Forbid($"Bu iþlem için '{actionDefinition.Role}' rolü gereklidir.");
+                        }
+                    }
+                }
+            }
+            
             if (actionDefinition.ValidationType != null)
             {
                 var validator = (IValidator)Activator.CreateInstance(actionDefinition.ValidationType)!;
                 var validationResult = await validator.ValidateAsync(new ValidationContext<object>(request!));
+
                 if (!validationResult.IsValid)
                 {
                     return BadRequest(validationResult.Errors);
@@ -50,28 +76,10 @@ namespace EventTicketSystem.Api.Controllers
                 return BadRequest("Metot bulunamadý.");
             }
 
-            object? response;
-
-            var parameters = method.GetParameters();
-
-            if (parameters.Length == 0)
-            {
-                response = method.Invoke(application, null);
-            }
-            else if (parameters.Length == 1 && parameters[0].ParameterType == typeof(ClaimsPrincipal))
-            {
-                response = method.Invoke(application, new object[] { User });
-            }
-            else if (parameters.Length == 2 && parameters[1].ParameterType == typeof(ClaimsPrincipal))
-            {
-                response = method.Invoke(application, new object[] { request!, User });
-            }
-            else
-            {
-                response = method.Invoke(application, new[] { request });
-            }
-
+            var response = method.Invoke(application, new[] { request });
             return Ok(response);
         }
     }
 }
+
+ 

@@ -2,8 +2,6 @@
 using EventTicketSystem.Application.ResponseGenerators;
 using EventTicketSystem.Dto.Request.UserRequest;
 using EventTicketSystem.Dto.Response.UserResponse;
-using EventTicketSystem.Infrastructure;
-
 
 public class UserApplication
 {
@@ -18,7 +16,7 @@ public class UserApplication
 
     public RegisterUserResponse RegisterUser(RegisterUserRequest request)
     {
-        var user = _userService.RegisterUser(request.UserName, request.Email, request.Password);
+        var user = _userService.RegisterUser(request.UserName, request.Email, request.Password, request.Role, request.BirthDate);
         return UserResponseGenerator.ToRegisterUserResponse(user);
     }
 

@@ -24,5 +24,10 @@ namespace EventTicketSystem.Repository
         {
             return _context.Purchases.Where(p => p.UserId == userId).ToList();
         }
+
+        public bool IsFirstPurchase(int userId)
+        {
+            return !_context.Purchases.Any(p => p.UserId == userId);
+        }
     }
 }

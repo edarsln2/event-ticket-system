@@ -23,13 +23,13 @@ public class EventApplication
         _eventService.DeleteEvent(request.EventId);
     }
 
-    public GetEventByIdResponse GetEventById(int eventId)
+    public GetEventByIdResponse GetEventById(GetEventByIdRequest request)
     {
-        var evnt = _eventService.GetEventById(eventId);
+        var evnt = _eventService.GetEventById(request.EventId);
         return EventResponseGenerator.ToGetEventByIdResponse(evnt);
     }
 
-    public List<GetEventListResponse> GetEventList()
+    public List<GetEventListResponse> GetEventList(GetEventListRequest request)
     {
         var events = _eventService.GetEventList();
         return EventResponseGenerator.ToGetEventListResponse(events);

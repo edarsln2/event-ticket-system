@@ -17,5 +17,11 @@ namespace EventTicketSystem.Entity
         [Column("password")]
         public string PasswordHash { get; set; }
 
+        [Column("role")]
+        public string Role { get; set; }
+
+        [Column("birthdate")]
+        public DateTime BirthDate { get; set; }
+
     }
 }
